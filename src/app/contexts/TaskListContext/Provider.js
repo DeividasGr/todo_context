@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Context from './context';
 
 function TaskListProvider({ children }) {
@@ -8,7 +9,13 @@ function TaskListProvider({ children }) {
     { task: 'Walk the dog', id: 3 },
   ]);
 
-  return <Context.Provider value={{ todos }}>{children}</Context.Provider>;
+  const addTask = (title) => {
+    setTodos([...todos, { task: title, id: uuidv4() }]);
+  };
+
+  return (
+    <Context.Provider value={{ todos, addTask }}>{children}</Context.Provider>
+  );
 }
 
 export default TaskListProvider;

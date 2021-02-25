@@ -4,12 +4,12 @@ import Task from './Task';
 
 function TaskList() {
   const { todos } = useContext(TaskListContext.context);
-  console.log(todos);
+
   return (
     <div>
       <ul className="list">
         {todos.map((todo) => {
-          return <Task title={todo.task} />;
+          return <Task key={todo.id} title={todo.task} />;
         })}
       </ul>
     </div>

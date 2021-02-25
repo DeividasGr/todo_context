@@ -3,7 +3,7 @@ import TaskListContext from '../contexts/TaskListContext';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 
 function Task({ todo }) {
-  const { removeTask } = useContext(TaskListContext.context);
+  const { removeTask, findItem } = useContext(TaskListContext.context);
 
   const handleRemove = () => {
     removeTask(todo.id);
@@ -16,7 +16,7 @@ function Task({ todo }) {
         <button onClick={handleRemove} className="btn-delete task-btn">
           <FaTrashAlt className="icon" />
         </button>
-        <button className="btn-edit task-btn">
+        <button onClick={() => findItem(todo.id)} className="btn-edit task-btn">
           <FaEdit className="icon" />
         </button>
       </div>

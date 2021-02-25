@@ -33,7 +33,7 @@ function TaskListProvider({ children }) {
 
   const editTask = (title, id) => {
     const newTask = todos.map((todo) =>
-      todo.id === id ? { title, id } : todo
+      todo.id === id ? { task: title, id } : todo
     );
 
     setTodos(newTask);

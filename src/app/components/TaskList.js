@@ -9,7 +9,7 @@ function TaskList() {
     <div>
       <ul className="list">
         {todos.map((todo) => {
-          return <Task key={todo.id} title={todo.task} />;
+          return <Task key={todo.id} todo={todo} />;
         })}
       </ul>
     </div>

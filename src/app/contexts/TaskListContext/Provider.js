@@ -13,8 +13,18 @@ function TaskListProvider({ children }) {
     setTodos([...todos, { task: title, id: uuidv4() }]);
   };
 
+  const removeTask = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const clearList = () => {
+    setTodos([]);
+  };
+
   return (
-    <Context.Provider value={{ todos, addTask }}>{children}</Context.Provider>
+    <Context.Provider value={{ todos, addTask, removeTask, clearList }}>
+      {children}
+    </Context.Provider>
   );
 }
 
